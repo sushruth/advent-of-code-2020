@@ -11,17 +11,13 @@ export function _2() {
   function prep(data: string) {
     const result: Entry[] = [];
 
-    for (const line of data.split(/\n|\r/g)) {
-      if (line) {
-        const parts = line.split(" ");
-        const minmax = parts[0].split("-");
-        result.push({
-          alphabet: parts[1].replace(":", ""),
-          min: Number(minmax[0]),
-          max: Number(minmax[1]),
-          password: parts[2],
-        });
-      }
+    for (const line of data.matchAll(/(\d+)-(\d+) ([a-z]): ([a-z]*?)\n/g)) {
+      result.push({
+        min: Number(line[1]),
+        max: Number(line[2]),
+        alphabet: line[3],
+        password: line[4],
+      });
     }
 
     return result;
