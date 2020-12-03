@@ -2,17 +2,17 @@ import { readFileSync } from "fs";
 import { resolve } from "path";
 
 const total = 2020;
-const numbers = readFileSync(resolve(__dirname + "/input.txt"), "utf8")
+const expenses = readFileSync(resolve(__dirname + "/input.txt"), "utf8")
   .split("\n")
   .map((v) => Number(v));
 
 export function _1() {
-  for (let i = 0; i < numbers.length; i++) {
-    const num = numbers[i];
-    const diff = Math.abs(total - num);
-    if (numbers.includes(diff, i)) {
-      return `${num} + ${diff} = ${total}, so ${num} ✖ ${diff} = ${
-        num * diff
+  for (let i = 0; i < expenses.length; i++) {
+    const expense = expenses[i];
+    const balance = Math.abs(total - expense);
+    if (expenses.includes(balance, i)) {
+      return `${expense} + ${balance} = ${total}, so ${expense} ✖ ${balance} = ${
+        expense * balance
       } is one answer\n`;
     }
   }

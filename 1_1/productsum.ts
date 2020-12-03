@@ -2,21 +2,21 @@ import { readFileSync } from "fs";
 import { resolve } from "path";
 
 const total = 2020;
-const numbers = readFileSync(resolve(__dirname + "/input.txt"), "utf8")
+const expenses = readFileSync(resolve(__dirname + "/input.txt"), "utf8")
   .split("\n")
   .map((v) => Number(v));
 
 export function _1_1() {
-  for (let i = 0; i < numbers.length; i++) {
-    const num = numbers[i];
-    const diff = Math.abs(total - num);
-    for (let j = i + 1; j < numbers.length; j++) {
-      const num_1 = numbers[j];
-      if (num_1 < diff) {
-        const diff_1 = Math.abs(diff - num_1);
-        if (numbers.includes(diff_1, j)) {
-          return `${num} + ${num_1} + ${diff_1} = ${total}, so ${num} ✖ ${num_1} ✖ ${diff_1} = ${
-            num * num_1 * diff_1
+  for (let i = 0; i < expenses.length; i++) {
+    const expense = expenses[i];
+    const initialBalance = Math.abs(total - expense);
+    for (let j = i + 1; j < expenses.length; j++) {
+      const anotherExpense = expenses[j];
+      if (anotherExpense < initialBalance) {
+        const finalBalance = Math.abs(initialBalance - anotherExpense);
+        if (expenses.includes(finalBalance, j)) {
+          return `${expense} + ${anotherExpense} + ${finalBalance} = ${total}, so ${expense} ✖ ${anotherExpense} ✖ ${finalBalance} = ${
+            expense * anotherExpense * finalBalance
           } is one answer\n`;
         }
       }
