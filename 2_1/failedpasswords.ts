@@ -7,7 +7,7 @@ type Entry = {
   password: string;
 };
 
-export function _2() {
+export function _2_1() {
   function prep(data: string) {
     const result: Entry[] = [];
 
@@ -30,29 +30,24 @@ export function _2() {
   function run(entries: Entry[]) {
     const badPasswords: {
       entry: Entry;
-      condition: "low" | "high" | "none";
-      count: number;
+      condition: "low" | "high";
     }[] = [];
 
     for (const entry of entries) {
       const { min, max, alphabet, password } = entry;
-      const matches = password.match(new RegExp(alphabet, "g"));
+      const matches = `${password[min - 1]}${password[max - 1]}`.match(
+        new RegExp(alphabet, "g")
+      );
+
       if (matches) {
-        if (matches.length < min) {
-          badPasswords.push({
-            entry,
-            condition: "low",
-            count: Math.abs(matches.length - min),
-          });
-        } else if (matches.length > max) {
+        if (matches.length > 1) {
           badPasswords.push({
             entry,
             condition: "high",
-            count: Math.abs(matches.length - max),
           });
         }
       } else {
-        badPasswords.push({ entry, condition: "none", count: 0 });
+        badPasswords.push({ entry, condition: "low" });
       }
     }
 

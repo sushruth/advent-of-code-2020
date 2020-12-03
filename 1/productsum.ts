@@ -9,8 +9,8 @@ const expenses = readFileSync(resolve(__dirname, "./input.txt"), "utf8")
 export function _1() {
   function prep(data: string) {
     return data
-		.split(/\n|\r/g)
-		.map((v) => v && Number(v))
+      .split(/\n|\r/g)
+      .map((v) => v && Number(v))
       .filter(Boolean);
   }
 
