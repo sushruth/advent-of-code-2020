@@ -1,6 +1,7 @@
 import { performance, PerformanceObserver } from "perf_hooks";
 import { _1 } from "./1/productsum";
 import { _1_1 } from "./1_1/productsum";
+import { jack } from "./lib/lumber";
 
 const dayAndPart = process.argv.find((v) => v.match(/^[\d.]+$/));
 
@@ -14,8 +15,9 @@ perfObserver.observe({ entryTypes: ["measure"] });
 
 function runWithTimer(fn: () => unknown) {
   performance.mark("start");
-  fn();
+  const result = fn();
   performance.mark("end");
+  jack(result);
   performance.measure("Finished in", "start", "end");
 }
 

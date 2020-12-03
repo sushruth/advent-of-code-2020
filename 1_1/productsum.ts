@@ -15,11 +15,9 @@ export function _1_1() {
       if (num_1 < diff) {
         const diff_1 = Math.abs(diff - num_1);
         if (numbers.includes(diff_1, j)) {
-          return console.log(
-            `\n\t- ${num} + ${num_1} + ${diff_1} = ${total}, so ${num} ✖ ${num_1} ✖ ${diff_1} = ${
-              num * num_1 * diff_1
-            } is one answer\n`
-          );
+          return `${num} + ${num_1} + ${diff_1} = ${total}, so ${num} ✖ ${num_1} ✖ ${diff_1} = ${
+            num * num_1 * diff_1
+          } is one answer\n`;
         }
       }
     }
