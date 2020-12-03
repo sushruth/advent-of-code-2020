@@ -1,9 +1,14 @@
+import { readFileSync } from "fs";
+import { resolve } from "path";
 import { performance, PerformanceObserver } from "perf_hooks";
 import { _1 } from "./1/productsum";
 import { _1_1 } from "./1_1/productsum";
-import { jack } from "./lib/lumber";
+import { _2 } from "./2/failedpasswords";
+import { Jack } from "./lib/lumber";
+import { Runner } from "./lib/types";
 
 const dayAndPart = process.argv.find((v) => v.match(/^[\d.]+$/));
+const dayDirName = dayAndPart.replace(".", "_");
 
 const perfObserver = new PerformanceObserver((items) => {
   items.getEntries().forEach((entry) => {
@@ -13,20 +18,38 @@ const perfObserver = new PerformanceObserver((items) => {
 
 perfObserver.observe({ entryTypes: ["measure"] });
 
-function runWithTimer(fn: () => unknown) {
+function runWithTimer<T>(fn: () => Runner<T>) {
+	const [prep, run] = fn();
+	
+	performance.mark("fileread");
+  const data = readFileSync(
+    resolve(__dirname, dayDirName, "./input.txt"),
+    "utf8"
+	);
+
+  performance.mark("prep");
+	const preparedData = prep(data);
+	
   performance.mark("start");
-  const result = fn();
+	const result = run(preparedData);
+	
   performance.mark("end");
-  jack(result);
-  performance.measure("Finished in", "start", "end");
+	Jack.log(...result.concat('\n'));
+	
+  performance.measure("Data read in", "fileread", "prep");
+  performance.measure("Data prepared in", "prep", "start");
+  performance.measure("Run in", "start", "end");
+  performance.measure("Completed in", "fileread", "end");
 }
 
 void (function () {
-  switch (dayAndPart.replace(".", "_")) {
+  switch (dayDirName) {
     case "1":
       return runWithTimer(_1);
     case "1_1":
       return runWithTimer(_1_1);
+    case "2":
+      return runWithTimer(_2);
     default:
       return console.log(`No cases for ${dayAndPart}`);
   }

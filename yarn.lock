@@ -17,6 +17,7 @@ __metadata:
   resolution: "advent_of_code_2020_sushruth@workspace:."
   dependencies:
     "@types/node": ^14.14.10
+    colorette: ^1.2.1
     ts-node: ^9.1.0
     typescript: ^4.1.2
   languageName: unknown
@@ -33,6 +34,13 @@ __metadata:
   version: 1.1.1
   resolution: "buffer-from@npm:1.1.1"
   checksum: 540ceb79c4f5bfcadaabbc18324fa84c50dc52905084be7c03596a339cf5a88513bee6831ce9b36ddd046fab09257a7c80686e129d0559a0cfd141da196ad956
+  languageName: node
+  linkType: hard
+
+"colorette@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "colorette@npm:1.2.1"
+  checksum: 1cc21ad4b84777a424794f78b6bb6a44b614ae17dcea91762199339f8047598e6d981249eeef7ea588c99eaf062be8fcdcd4866c112998922ed854db6dde96f9
   languageName: node
   linkType: hard
 

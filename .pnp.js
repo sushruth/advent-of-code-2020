@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@types/node", "npm:14.14.10"],
+            ["colorette", "npm:1.2.1"],
             ["ts-node", "virtual:da91818a1d5cd787e34809d774fe5e473863d85e2e07619aeef332c382a3a538cefee568d002e8d64d1de6c7b61121a6e7970497c7fd6f483b008c37d61dc9f8#npm:9.1.0"],
             ["typescript", "patch:typescript@npm%3A4.1.2#builtin<compat/typescript>::version=4.1.2&hash=cc6730"]
           ],
@@ -59,6 +60,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["advent_of_code_2020_sushruth", "workspace:."],
             ["@types/node", "npm:14.14.10"],
+            ["colorette", "npm:1.2.1"],
             ["ts-node", "virtual:da91818a1d5cd787e34809d774fe5e473863d85e2e07619aeef332c382a3a538cefee568d002e8d64d1de6c7b61121a6e7970497c7fd6f483b008c37d61dc9f8#npm:9.1.0"],
             ["typescript", "patch:typescript@npm%3A4.1.2#builtin<compat/typescript>::version=4.1.2&hash=cc6730"]
           ],
@@ -79,6 +81,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/buffer-from-npm-1.1.1-22917b8ed8-540ceb79c4.zip/node_modules/buffer-from/",
           "packageDependencies": [
             ["buffer-from", "npm:1.1.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["colorette", [
+        ["npm:1.2.1", {
+          "packageLocation": "./.yarn/cache/colorette-npm-1.2.1-1d4664fcf6-1cc21ad4b8.zip/node_modules/colorette/",
+          "packageDependencies": [
+            ["colorette", "npm:1.2.1"]
           ],
           "linkType": "HARD",
         }]
