@@ -7,6 +7,8 @@ import { _2 } from "./2/failedpasswords";
 import { _2_1 } from "./2_1/failedpasswords";
 import { _3 } from "./3/treecount";
 import { _3_1 } from "./3_1/treecount";
+import { _4 } from "./4/passportvalidator";
+import { _4_1 } from "./4_1/passportvalidator";
 import { Jack } from "./lib/lumber";
 import { Runner } from "./lib/types";
 
@@ -59,6 +61,10 @@ void (function () {
       return runWithTimer(_3);
     case "3_1":
       return runWithTimer(_3_1);
+    case "4":
+      return runWithTimer(_4);
+    case "4_1":
+      return runWithTimer(_4_1);
     default:
       return console.log(`No cases for ${dayAndPart}`);
   }
