@@ -1,3 +1,4 @@
+import { dim } from "colorette";
 import { readFileSync } from "fs";
 import { resolve } from "path";
 import { performance, PerformanceObserver } from "perf_hooks";
@@ -9,6 +10,7 @@ import { _3 } from "./3/treecount";
 import { _3_1 } from "./3_1/treecount";
 import { _4 } from "./4/passportvalidator";
 import { _4_1 } from "./4_1/passportvalidator";
+import { _5 } from "./5/seatnumber";
 import { Jack } from "./lib/lumber";
 import { Runner } from "./lib/types";
 
@@ -27,6 +29,7 @@ function runWithTimer<T>(fn: () => Runner<T>) {
   const [prep, run] = fn();
 
   performance.mark("fileread");
+  const beforeMemory = process.memoryUsage();
   const data = readFileSync(
     resolve(__dirname, dayDirName, "./input.txt"),
     "utf8"
@@ -37,6 +40,7 @@ function runWithTimer<T>(fn: () => Runner<T>) {
 
   performance.mark("start");
   const result = run(preparedData);
+  const afterMemory = process.memoryUsage();
 
   performance.mark("end");
   Jack.log(...result.concat("\n"));
@@ -44,7 +48,17 @@ function runWithTimer<T>(fn: () => Runner<T>) {
   performance.measure("Data read in", "fileread", "prep");
   performance.measure("Data prepared in", "prep", "start");
   performance.measure("Run in", "start", "end");
-  performance.measure("Completed in", "fileread", "end");
+	performance.measure("Completed in", "fileread", "end");
+	
+  console.info(
+    dim(
+      `Possible memory usage: ${
+        Math.round(
+          ((afterMemory.heapUsed - beforeMemory.heapUsed) / 1024 / 1024) * 100
+        ) / 100
+      }MB`
+    )
+  );
 }
 
 void (function () {
@@ -65,6 +79,8 @@ void (function () {
       return runWithTimer(_4);
     case "4_1":
       return runWithTimer(_4_1);
+    case "5":
+      return runWithTimer(_5);
     default:
       return console.log(`No cases for ${dayAndPart}`);
   }
