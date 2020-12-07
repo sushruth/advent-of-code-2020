@@ -11,6 +11,8 @@ import { _3_1 } from "./3_1/treecount";
 import { _4 } from "./4/passportvalidator";
 import { _4_1 } from "./4_1/passportvalidator";
 import { _5 } from "./5/seatnumber";
+import { _6 } from "./6/groupsum";
+import { _6_1 } from "./6_1/groupsum";
 import { Jack } from "./lib/lumber";
 import { Runner } from "./lib/types";
 
@@ -48,8 +50,8 @@ function runWithTimer<T>(fn: () => Runner<T>) {
   performance.measure("Data read in", "fileread", "prep");
   performance.measure("Data prepared in", "prep", "start");
   performance.measure("Run in", "start", "end");
-	performance.measure("Completed in", "fileread", "end");
-	
+  performance.measure("Completed in", "fileread", "end");
+
   console.info(
     dim(
       `Possible memory usage: ${
@@ -81,6 +83,10 @@ void (function () {
       return runWithTimer(_4_1);
     case "5":
       return runWithTimer(_5);
+    case "6":
+      return runWithTimer(_6);
+    case "6_1":
+      return runWithTimer(_6_1);
     default:
       return console.log(`No cases for ${dayAndPart}`);
   }
