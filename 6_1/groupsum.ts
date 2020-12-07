@@ -4,7 +4,7 @@ export function _6_1() {
   }
 
   function run(entries: string) {
-    let record: Record<string, number> = {};
+    let record: Map<string, number> = new Map();
     let skip = false;
     let groupSize = 0;
     let count = 0;
@@ -13,22 +13,21 @@ export function _6_1() {
     for (let alphabet of `${entries}\n\n`) {
       if (alphabet === "\n") {
         if (++newlines === 2) {
-          const values = Object.values(record);
-          for (const value of values) {
-						if (value === groupSize) {
-							count++;
+          for (const value of record.values()) {
+            if (value === groupSize) {
+              count++;
             }
           }
-					newlines = 0;
-					groupSize = 0;
-          record = {};
+          newlines = 0;
+          groupSize = 0;
+          record = new Map();
         } else {
           groupSize++;
         }
       } else {
         newlines = 0;
         if (!skip) {
-          record[alphabet] = (record[alphabet] ?? 0) + 1;
+          record.set(alphabet, (record.get(alphabet) ?? 0) + 1);
         }
       }
     }
