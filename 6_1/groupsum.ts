@@ -5,7 +5,6 @@ export function _6_1() {
 
   function run(entries: string) {
     let record: Map<string, number> = new Map();
-    let skip = false;
     let groupSize = 0;
     let count = 0;
     let newlines = 0;
@@ -26,9 +25,7 @@ export function _6_1() {
         }
       } else {
         newlines = 0;
-        if (!skip) {
-          record.set(alphabet, (record.get(alphabet) ?? 0) + 1);
-        }
+        record.set(alphabet, (record.get(alphabet) ?? 0) + 1);
       }
     }
 
