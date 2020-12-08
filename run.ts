@@ -14,6 +14,7 @@ import { _5 } from "./5/seatnumber";
 import { _6 } from "./6/groupsum";
 import { _6_1 } from "./6_1/groupsum";
 import { _7 } from "./7/bags";
+import { _8 } from "./8/loop";
 import { Jack } from "./lib/lumber";
 import { Runner } from "./lib/types";
 
@@ -90,6 +91,8 @@ void (function () {
       return runWithTimer(_6_1);
     case "7":
       return runWithTimer(_7);
+    case "8":
+      return runWithTimer(_8);
     default:
       return console.log(`No cases for ${dayAndPart}`);
   }
