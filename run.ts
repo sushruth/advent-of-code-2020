@@ -16,8 +16,11 @@ import { _6_1 } from "./6_1/groupsum";
 import { _7 } from "./7/bags";
 import { _8 } from "./8/loop";
 import { _9 } from "./9/xmas";
+import { _10 } from "./10/jolts";
 import { Jack } from "./lib/lumber";
 import { Runner } from "./lib/types";
+import { _11 } from "./11/occupancy";
+import { _11_1 } from "./11_1/occupancy";
 
 const dayAndPart = process.argv.find((v) => v.match(/^[\d.]+$/));
 const dayDirName = dayAndPart.replace(".", "_");
@@ -96,6 +99,12 @@ void (function () {
       return runWithTimer(_8);
     case "9":
       return runWithTimer(_9);
+    case "10":
+      return runWithTimer(_10);
+    case "11":
+      return runWithTimer(_11);
+    case "11_1":
+      return runWithTimer(_11_1);
     default:
       return console.log(`No cases for ${dayAndPart}`);
   }
