@@ -21,6 +21,8 @@ import { Jack } from "./lib/lumber";
 import { Runner } from "./lib/types";
 import { _11 } from "./11/occupancy";
 import { _11_1 } from "./11_1/occupancy";
+import { _12 } from "./12/directions";
+import { _12_1 } from "./12_1/directions";
 
 const dayAndPart = process.argv.find((v) => v.match(/^[\d.]+$/));
 const dayDirName = dayAndPart.replace(".", "_");
@@ -105,6 +107,10 @@ void (function () {
       return runWithTimer(_11);
     case "11_1":
       return runWithTimer(_11_1);
+    case "12":
+      return runWithTimer(_12);
+    case "12_1":
+      return runWithTimer(_12_1);
     default:
       return console.log(`No cases for ${dayAndPart}`);
   }
