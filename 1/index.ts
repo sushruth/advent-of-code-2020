@@ -1,12 +1,6 @@
-import { readFileSync } from "fs";
-import { resolve } from "path";
-
 const total = 2020;
-const expenses = readFileSync(resolve(__dirname, "./input.txt"), "utf8")
-  .split("\n")
-  .map((v) => Number(v));
 
-export function _1() {
+export default function _1() {
   function prep(data: string) {
     return data
       .split(/\n|\r/g)

@@ -1,4 +1,4 @@
-export function _9() {
+export default function _9() {
   const preambleLength = 25;
 
   function prep(data: string) {

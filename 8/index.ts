@@ -1,4 +1,4 @@
-export function _8() {
+export default function _8() {
   function prep(data: string) {
     return data.split(/\n/);
   }

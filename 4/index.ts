@@ -1,8 +1,6 @@
-import { Jack } from "../lib/lumber";
-
 const neededFields = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"];
 
-export function _4() {
+export default function _4() {
   function prep(data: string) {
     return data.split(/\n\n/);
   }
@@ -12,7 +10,7 @@ export function _4() {
     for (const passport of passports) {
       if (!neededFields.every((field) => passport.includes(field + ":"))) {
         invalidPassportCount++;
-			}
+      }
     }
 
     return [passports.length - invalidPassportCount, "passport(s) are valid"];

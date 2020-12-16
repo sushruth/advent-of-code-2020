@@ -1,4 +1,4 @@
-export function _10() {
+export default function _10() {
   function prep(data: string) {
     let entries: boolean[] = [];
     for (const line of data.split(/\n/)) {

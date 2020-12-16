@@ -21,7 +21,7 @@ const slopes = [
   },
 ];
 
-export function _3_1() {
+export default function _3_1() {
   function prep(data: string) {
     return data.split(/\n|\r/g);
   }

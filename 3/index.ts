@@ -3,7 +3,7 @@ const slope = {
   y: 1,
 };
 
-export function _3() {
+export default function _3() {
   function prep(data: string) {
     return data.split(/\n|\r/g);
   }

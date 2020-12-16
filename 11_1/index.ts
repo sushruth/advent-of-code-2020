@@ -1,6 +1,6 @@
 import { DiagnosticCategory, findAncestor } from "typescript";
 
-export function _11_1() {
+export default function _11_1() {
   function prep(data: string) {
     return data.split(/\n/);
   }

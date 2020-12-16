@@ -1,4 +1,4 @@
-export function _7() {
+export default function _7() {
   function prep(data: string) {
     let parentToChildren = new Map<string, Map<string, string>>();
     let childToParent = new Map<string, Set<string>>();

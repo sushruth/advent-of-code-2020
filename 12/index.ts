@@ -11,7 +11,7 @@ type Angles = 90 | 180 | 270;
 
 type Entry = string;
 
-export function _12() {
+export default function _12() {
   const R: DirInfo<Record<Angles, Actions>> = {
     N: { 90: "E", 180: "S", 270: "W" },
     E: { 90: "S", 180: "W", 270: "N" },

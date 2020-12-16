@@ -1,31 +1,23 @@
-export function _6_1() {
+export default function _6() {
   function prep(data: string) {
     return data;
   }
 
   function run(entries: string) {
-    let record: Map<string, number> = new Map();
-    let groupSize = 0;
+    const set = new Set();
     let count = 0;
     let newlines = 0;
 
     for (let alphabet of `${entries}\n\n`) {
       if (alphabet === "\n") {
         if (++newlines === 2) {
-          for (const value of record.values()) {
-            if (value === groupSize) {
-              count++;
-            }
-          }
           newlines = 0;
-          groupSize = 0;
-          record = new Map();
-        } else {
-          groupSize++;
+          count += set.size;
+          set.clear();
         }
       } else {
         newlines = 0;
-        record.set(alphabet, (record.get(alphabet) ?? 0) + 1);
+        set.add(alphabet);
       }
     }
 

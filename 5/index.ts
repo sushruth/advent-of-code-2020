@@ -1,4 +1,4 @@
-export function _5() {
+export default function _5() {
   function prep(data: string) {
     const splitData = data.split(/\n/);
     let mapInput: boolean[] = Array(splitData.length);

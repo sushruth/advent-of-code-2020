@@ -43,7 +43,7 @@ const fieldValidators: Record<
   },
 };
 
-export function _4_1() {
+export default function _4_1() {
   function prep(data: string) {
     return data.split(/\n\n/);
   }

@@ -2,7 +2,7 @@ import { waypoint } from "./waypoint";
 
 type Entry = string;
 
-export function _12_1() {
+export default function _12_1() {
   const opposite = {
     N: "S",
     E: "W",

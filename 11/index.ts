@@ -1,4 +1,4 @@
-export function _11() {
+export default function _11() {
   function prep(data: string) {
     return data.split(/\n/);
   }
